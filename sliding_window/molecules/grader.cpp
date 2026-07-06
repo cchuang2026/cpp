@@ -4,10 +4,10 @@
 #include <iostream>
 using namespace std;
 #include "molecules.h"
-int abc=5;
+
 int main() {
     int n, l, u;
-    cout<<"Hello World"<<endl; 
+    cout<<"start to read sample input..."<<endl; 
     freopen("sample1.in", "r", stdin);
     int a = scanf("%d %d %d", &n, &l, &u);
     assert(3 == a);
