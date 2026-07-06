@@ -1,11 +1,9 @@
+#include "molecules.h"
 #include <iostream>
 using namespace std;
-
-int main(){
-    cout<<"Hello World"<<endl;
-    int a = 10;
-    cout<<"The value of a is: "<<a<<endl;
-    a+= 5;
-    cout<<"The new value of a is: "<<a<<endl;
-    cout<<"This is a C++14 project"<<endl;
+int tdy=0;
+vector<int> find_subset(int l, int u, vector<int> w) {
+    int min_sum = 0;
+    int max_sum = 0;
+return vector<int>();
 }
