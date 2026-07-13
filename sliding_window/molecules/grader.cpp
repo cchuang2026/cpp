@@ -8,7 +8,7 @@ using namespace std;
 int main() {
     int n, l, u;
     cout<<"start to read sample input..."<<endl; 
-    freopen("sample1.in", "r", stdin);
+    freopen("sample3.in", "r", stdin);
     int a = scanf("%d %d %d", &n, &l, &u);
     assert(3 == a);
     std::vector<int> w(n);
