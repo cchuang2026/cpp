@@ -63,14 +63,14 @@ int main(){
     string comet,group;
     cin >> comet>>group;
     ll totalcomet=1;
-    for(int i=0;i<comet.size(),i++){
+    for(int i=0;i<comet.size();i++){
         char c=comet[i];
         ll cur_num=numconverted(c);
         totalcomet=totalcomet*cur_num;
     }
 
     ll totalgroup=1;
-    for(int i=0;i<group.size(),i++){
+    for(int i=0;i<group.size();i++){
         char c=group[i];
         ll cur_num=numconverted(c);
         totalgroup=totalgroup*cur_num;
