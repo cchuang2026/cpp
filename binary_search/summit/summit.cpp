@@ -6,5 +6,5 @@ int main(){
     ll m,d;
     cin >> m >>d;
 
-    
+    cout<<1;
 }
