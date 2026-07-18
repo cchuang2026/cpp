@@ -5,17 +5,22 @@ typedef long long ll;
 typedef __int128 superll;
 
 int main(){
+    // freopen("sample.in", "r", stdin);
     ios::sync_with_stdio(0);
     cin.tie(0);
 
-    ll q;
+    int q;
     cin >> q;
 
-    for(ll i=0;i<q;i++){
-        freopen("sample.in", "r", stdin);
+    for(int i=0;i<q;i++){
+        
         ll a,b,c,d;
         cin >> a>>b>>c>>d;
 
+        if(d==0) {
+            cout<<1<<endl;
+            continue;
+        }
         ll low=0;
         ll high=100000;
         ll ans=high;//for worse case
