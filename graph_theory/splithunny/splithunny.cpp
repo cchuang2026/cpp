@@ -4,7 +4,7 @@
 #include<algorithm>
 #include<queue>
 using namespace std;
-
+//flood filling
     int r, c;
     char grids[105][105];
     bool visited[105][105];
