@@ -31,7 +31,7 @@ int main(){
     while(!q.empty()){
         int cur_i=q.front().first;
         int cur_j=q.front().second;
-        visited[cur_i][cur_j]=true;
+       
         q.pop();
         ans=max(ans,dist[cur_i][cur_j]);
 
@@ -46,6 +46,7 @@ int main(){
                     dist[next_i][next_j]=dist[cur_i][cur_j]+1;
                     
                     q.push({next_i,next_j});
+                     visited[next_i][next_j]=true;
 
                 }
 
