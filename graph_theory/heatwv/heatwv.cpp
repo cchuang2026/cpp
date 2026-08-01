@@ -1,47 +1,45 @@
-#include <iostream>
+#include<iostream>
 #include<vector>
-//usual dijkstra implementation
+#include<queue>
 using namespace std;
 
-const long long INF = 1e18;
+int main(){
+    int t,c,ts,te;
+    cin >> t >> c >>ts>>te;
 
-vector<long long> dijkstra(int n, int src, const vector<vector<pair<int, long long>>>& g) {
-    vector<long long> dist(n + 1, INF);
-    dist[src] = 0;
-    priority_queue<pair<long long, int>, vector<pair<long long, int>>, greater<pair<long long, int>>> pq;
-    pq.push({0, src});
+    vector<vector<pair<int,int>>> adjlist(t+1);
+    //weight,node
+    //one based 
+    for(int i=1;i<=c;i++){
+        int r1,r2,w;
+        cin >> r1 >> r2 >> w;
+        adjlist[r1].push_back({w,r2});
+        adjlist[r2].push_back({w,r1});
+    }
 
-    while (!pq.empty()) {
-        auto [d, u] = pq.top();
+    int dist[t+1];
+    const int INF=1e9;
+    for(int i=1;i<=t;i++) dist[i]=INF;
+    dist[ts]=0;
+
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+    pq.push({0,ts});
+
+    while(!pq.empty()){
+        int cur_node=pq.top().second;
+        int cur_dist=pq.top().first;
         pq.pop();
-        if (d > dist[u]) continue;
 
-        for (auto [v, w] : g[u]) {
-            if (dist[v] > dist[u] + w) {
-                dist[v] = dist[u] + w;
-                pq.push({dist[v], v});
+        if(cur_dist>dist[cur_node]) continue;
+
+        for(auto[w,neighbour]:adjlist[cur_node]){
+            if(dist[cur_node]+w<dist[neighbour]){
+                dist[neighbour]=dist[cur_node]+w;
+                pq.push({dist[neighbour],neighbour});
             }
         }
     }
-    return dist;
-}
 
-int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    cout<<dist[te]<<endl;
 
-    int T, C, Ts, Te;
-    cin >> T >> C >> Ts >> Te;
-
-    vector<vector<pair<int, long long>>> g(T + 1);
-    for (int i = 0; i < C; i++) {
-        int u, v;
-        long long w;
-        cin >> u >> v >> w;
-        g[u].emplace_back(v, w);
-        g[v].emplace_back(u, w);   // undirected
-    }
-
-    auto dist = dijkstra(T, Ts, g);
-    cout << dist[Te] << "\n";
 }
