@@ -20,7 +20,6 @@ int main(){
     const int INF=1e9;
     vector<int> dist(e+1,INF);
     //one based
-   
 
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
     pq.push({0,1});
